@@ -46,7 +46,7 @@ The basis of the storage system is the charge placed in node S, written from BL 
 
 Fig 2 shows the transistor-level reference schematic of the DRAM cell.
 <p align="center">
-  <img src="Project Images/Reference Circuit.jpgg"></br>
+  <img src="Project Images/Reference Circuit.jpg"></br>
   Fig 2: Reference Circuit Diagram
 </p>
 <p>
