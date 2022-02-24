@@ -72,7 +72,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 
 <b>• Synopsys Custom Compiler:</b></br>
 The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. 
-To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
+To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html'>Synopsys Custom Compiler</a></br>
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -81,7 +81,7 @@ To know more, kindly refer to: https://www.synopsys.com/implementation-and-signo
 
 <b>• Synopsys Primewave:</b></br>
 PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. 
-To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html
+To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html'>Synopsys Custom Compiler</a></br>
 
 <b>• Synopsys 28nm PDK:</b></br>
 The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
@@ -114,8 +114,15 @@ The Testbench has been created using the Symbol designed previously and the Vpul
 ## Simulation:
 
 ### Transient Analysis:
-After creating and saving the schematic go to 'Tools' and open 'Primewave' to start the simulation. In the Primewave select the 'model file' i.e the '28nm PDK's .lib file presentin the HSPICE folder. After this select the 'tran' analysis in the analysis window and give the 'Start', 'Stop', and 'Step Size' parameters and save it. Then add the outputs which needs to be plotted by selecting the nets on the schematic.</br> 
-Then go to 'Simulations -> Netlist and Run' to generate a netlist and run the simulation to get the below output.
+in order to perform a successfull Transient Analysis simulation of the above Testbench Design, following steps were followed:
+1) After completion of Testbench design, click 'Save'
+2) Then, navigate to 'Tools' and in the drop-down menu of Tools, select 'Primewave'. 
+3) The Testsuite Simualtion window appears, Here, double-click on the 'model file' and then in include path paste '/PDK/SAED_PDK32nm/hspice'.
+4) Then click to add Model File and select from that folder the 'saed32nm.lib', that is, the 28nm PDK's .lib file presentin the HSPICE folder and set section as 'TT'. Click Ok.
+5) Now double click on Analyses and you should see the Analysis window appear. Select from here '.tran' analysis and give the 'Start', 'Stop', and 'Step Size' parameters and save it by clicking Ok. 
+6) Then add the outputs which need to be plotted by selecting the nets from the 'Pick from design' option.</br> 
+7) Then navigate to 'Simulations and click 'Netlist and Run' to generate the SPICE netlist and get the Output waveform on the Waveview Simulation window.
+
 <p align="center">
   <img src="Project Images/Trans_output.jpg"></br>
   Fig. 7: Transient Analysis of the Testbench
@@ -182,6 +189,7 @@ Herewith is the Netlist generated for the above design:
 
 # Observations & Conclusion:
 Thus, the design and analysis of the 3T1D Capacitorless DRAM using 28nm CMOS has been successfully carried out on the Synopsys Custom Compiler with the following observations:</br>
+
 • The storage of data in this type of DRAM design is made possible via the use of a gated diode as an alternative to capacitor based DRAM cells.</br>
 • Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes.</br>
 • The 3T1D design eliminates existing memory drawabacks associated with the 4T and 3T1C based DRAM Designs.</br>
