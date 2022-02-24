@@ -1,10 +1,10 @@
-# Differential End Current Starved Voltage Controlled Oscillator (VCO)
+# 3T1D [3 Transistor 1 Diode] Capacitorless DRAM
 
 This repository presents the design of Differential End CSVCO implemented using Synopsis Custom Compiler on 28nm CMOS Technology.
 
 # Table of Contents
  * [Introduction](#Introduction)
- * [Current Starving Technique](#Current-Starving-Technique)
+ * [Literature Survey on Memories](#Literature Survey on Memories)
  * [Differential End Current Starved VCO](#Differential-End-Current-Starved-VCO)
  * [Tools Used](#Tools-Used)
  * [Pre-Layout Schematics and Simulations](#Pre-Layout-Schematics-and-Simulations)
@@ -17,11 +17,21 @@ This repository presents the design of Differential End CSVCO implemented using 
 
 # Introduction:
 
-In VLSI System Design, Phase Locked Loop (PLL) is an essential building block for many timing generator applications. It comprises of five essential blocks which are Phase Frequency detector, Charge Pump, Low pass filter, Voltage controlled oscillator and Frequency Divider. Among many different oscillators, LC and ring oscillators are the most commonly used ones. The LC VCO occupies more area, and the tuning range is very narrow. Ring VCO provides a wide tuning range, less power consumption with less area. Among many types of Ring oscillators, Current starved VCO offers a balance between the power, area, phase noise with wide tuning range. In PLL, VCO is the most sensitive block to leakage power, and it will affect the performance of PLL to a more considerable extent.The scope of this work is to present a low power Current Starved Voltage Controlled Oscillator with Differential cross-coupled inverters as delay stages instead of regular inverters. Couple of benefits of using this Differential Cross coupled inverter is that: one, leakage power can be reduced thereby reducing overall power consumption and two, phase noise is reduced making this circuit stable; Hence can be used in space applications such as Radiation hardening of PLL.
+Memories play an essential role in design of any electronics design where storage of data is required. Memories are used to store data and retrieve data when required. Read Only Memory (ROM) and Random Access Memory (RAM) are two types of memories used in modern day architectures. Random Access Memory is of two types Dynamic Random Access Memory
+(DRAM) and Static Random Access Memory (SRAM). SRAM is static in nature and faster as compared to DRAM. SRAM is expensive and consume less power. SRAM have more transistors
+per bit of memory. They are mostly used as cache memories. DRAMS on the other hand are dynamic in nature and slower as compared to SRAM. DRAM are expensive and consume more
+power, they require less transistor per bit of memory. They are mostly used as main memories. DRAM is widely used for main memories in personal and mainframe computers and engineering workstation. DRAM memory cell is used for read and write operation for single bit storage for circuits. A single DRAM cell is capable of storing 1 bit data in the capacitor in the form of charge. Charge of the capacitor decreases with time .Hence refresh signals are used to refresh the data in the capacitor. When a read signal reads the data it refreshes it as well. Many different cell designs exist for modern day DRAM cell. These designs are differentiated by the no. of transistors used in their designing. As the no. of transistors increase, power dissipation also increases. DRAM is one of the most common and cost efficient random access memory used as main memory for workstations. The charge stored in memory cell is time dependent. For high density memories DRAM cell with low power consumption and less area are preferred.
 
-# Current Starving Technique:
+# Literature Survey on Memories
 
-Ring Oscillators can be realized in different ways. The frequency of oscillation is inversely proportional to the number of delay stages and delay time (or) propagation delay of each stage. The main disadvantage of normal ring VCO is that there is no different supply and control voltage, but supply voltage is considered as the control voltage. The drawback for normal ring VCO circuit is that as the supply voltage decreases the amplitude also decreases. To overcome this disadvantage, we are going for current starved technique. The current starved technique utilises the principle of current mirror. Current mirror is a technique where corresponding voltage is converted into current. The same magnitude of current is supplied to various branches as shown in figure.
+Volatile memories enclose mainly two different types, static memories known as SRAM (Static RAM) and dynamic memories, DRAM (Dynamic RAM). The main difference between them is the time while they can store the information without any loss. SRAM on one hand, keep the information as long as they are powered. Only if the power is unplugged their content is lost. On the other hand, DRAM cells store the data for a short period of time, around milliseconds. To avoid losing data with time, DRAM takes advantage of block known as DRAM controller, which permits the memory to be refreshed before the data is corrupted and therefore irrecoverable. So, there exists a way to keep the data safe on a DRAM.
+The advantage of DRAM compared to SRAM is that they consume less area. This reduced surface leads to memory chips with larger storage capacity and lower cost.
+
+# 3T1D DRAM Design
+
+Many different cell designs exist for modern day DRAM cell. These designs are differentiated by the no. of transistors used in their designing. As the no. of transistors increase, power dissipation also increases. In this paper, 3T1D DRAM cell is designed and analyzed. These DRAMs have an advantage over SRAM, that is, their resistance to process variation. This feature helps it to be used at low feature sizes. Another advantage of 3T1D DRAM is that it does not slow down as its size is scaled down. 3T1D DRAM uses the gated diode instead of capacitor to store the data value. The absence of a capacitor in it provides a significant reduction in power consumption as compared to several DRAM cell designs.
+
+
 <p align="center">
 <img src="Images/current_mirror.jpg"></br>
   Fig. 1: Current Mirror 
