@@ -207,7 +207,7 @@ Thus, the design and analysis of the 3T1D Capacitorless DRAM using 28nm CMOS has
 • Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
 
 # Acknowledgements:
-• <a href='https://in.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836/'>Kunal Ghosh</a>, Founder, VLSI System Design (VSD) Corp. Pvt. Ltd</br>
+• <a href='https://in.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836/'>Kunal Ghosh</a>, Founder, VSD Corporation Pvt. Ltd</br>
 • <a href='https://iith.ac.in/'>IIT Hyderabad</a></br>
 • <a href='https://www.synopsys.com/'>Synopsys India</a></br>
 
