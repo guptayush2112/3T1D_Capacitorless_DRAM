@@ -71,7 +71,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
-&emsp;The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
+The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -79,10 +79,10 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 <p>
 
 <b>• Synopsys Primewave:</b></br>
-&emsp;PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. This tool helped in various types of simulations of the above designed circuit. To know more about the SPICE Simulator, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html
+PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. To know more about the SPICE Simulator, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html
 
 <b>• Synopsys 28nm PDK:</b></br>
-&emsp;The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
+The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
 
 # Post-Layout Schematic and Simulation:
 
@@ -122,8 +122,62 @@ The above graph has a Vsupply value of 1.2V and a total time period of 50ns.
 
 ## SPICE Netlist:
 
-Refer to the netlist of the 3-Stage Differential End CSVCO here: <a href='differential_CSVCO.cir.out'>Netlist</a>
-Refer to the netlist of the 5-Stage Differential End CSVCO here: <a href='Differential_csvco_5stage.cir.out'>Netlist</a>
+Herewith is the Netlist generated for the above design:
+
+*  Generated for: PrimeSim
+*  Design library name: lib1
+*  Design cell name: 3T1D_DRAM_tb
+*  Design view name: schematic
+.lib 'saed32nm.lib' TT
+
+*Custom Compiler Version S-2021.09
+*Tue Feb 22 20:44:28 2022
+
+.global gnd!
+********************************************************************************
+* Library          : lib1
+* Cell             : 3T1D_DRAM
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt _3t1d_dram dramop rclk vc wrclk bit_line
+xm4 dramop net32 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm3 gnd! vc gnd! gnd! n105 w=3.5u l=0.03u nf=1 m=1
+xm5 net32 rclk gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+xm12 bit_line wrclk vc vc n105 w=3.5u l=30n nf=1 m=1
+xm0 gnd! vc gnd! gnd! n105 w=0.6u l=0.5u nf=1 m=1
+xm7 dramop net32 net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
+xm6 net32 gnd! net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
+vs1 net47 gnd! dc=1.2
+.ends _3t1d_dram
+
+********************************************************************************
+* Library          : lib1
+* Cell             : 3T1D_DRAM_tb
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xi1 op rclk vc wrclk bit_line _3t1d_dram
+vdatain bit_line gnd! dc=0 pulse ( 0 1.2 0 100p 100p 10n 20n )
+vr_clk rclk gnd! dc=0 pulse ( 0 1.2 6n 100p 100p 2n 10n )
+vwr_clk wrclk gnd! dc=0 pulse ( 0 1.2 0.2n 100p 100p 2n 10n )
+
+.tran '1n' '50n' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(op) v(rclk) v(vc) v(wrclk) v(bit_line)
+
+.temp 25
+
+.option primesim_output=wdf
+
+.option parhier = LOCAL
+
+.end
+
 
 # Observations:
 • Maximum frequency obtained for Supply voltage of 1.2V in 3-Stage Differential End CSVCO is around 22 GHz</br>
@@ -133,7 +187,7 @@ Refer to the netlist of the 5-Stage Differential End CSVCO here: <a href='Differ
 • One other thing to be noted is that in the parametric sweep we can see that the 5 stage VCO's graph is more linear as compared to the 3 stage VCO's graph which means that the 5 stage VCO is more stable and has better phase SNR.</br>
 
 # Author:
-• Trinath Harikrishna, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
+• Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
 
 # Acknowledgements:
 • <a href='https://www.iith.ac.in/events/2022/02/15/Cloud-Based-Analog-IC-Design-Hackathon/'>Cloud Based Analog IC Design Hackathon</a></br>
