@@ -72,7 +72,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 
 <b>• Synopsys Custom Compiler:</b></br>
 The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. 
-To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html/
+To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -81,7 +81,7 @@ To know more, kindly refer to: https://www.synopsys.com/implementation-and-signo
 
 <b>• Synopsys Primewave:</b></br>
 PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. 
-To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html/
+To know more, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html
 
 <b>• Synopsys 28nm PDK:</b></br>
 The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
