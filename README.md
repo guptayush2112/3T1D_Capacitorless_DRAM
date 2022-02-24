@@ -180,14 +180,15 @@ Herewith is the Netlist generated for the above design:
 
 # Observations & Conclusion:
 Thus, the design and analysis of the 3T1D Capacitorless DRAM has been successfully carried out on the with the following observations</br>
-• Since in this design, a gated diode is used as an alternative to capacitor to store the data, the absence of that capacitor reduces the power consumption as
-compared to capacitor based DRAM cells.</br>
+• The storage of data in this type of DRAM design is made possible via the use of a gated diode as an alternative to capacitor based DRAM cells.</br>
 • Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes</br>
+• The 3T1D design eliminates existing memory drawabacks associated with 4T and 3T1C based DRAM Designs.</br>
 
 # Author:
 • Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
 
 # Acknowledgements:
+• <a href='https://in.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836/'>Kunal Ghosh</a>,Founder, VLSI System Design (VSD) Corp. Pvt. Ltd</br>
 • <a href='https://iith.ac.in/'>IIT Hyderabad</a></br>
 • <a href='https://www.synopsys.com/'>Synopsys India</a></br>
 • <a href='https://www.vlsisystemdesign.com/'>VLSI System Design (VSD) Corp. Pvt. Ltd India</a></br>
