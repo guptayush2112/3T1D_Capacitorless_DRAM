@@ -1,4 +1,4 @@
-# 3T1D [3 Transistor 1 Diode] Capacitorless DRAM
+# 3T1D [3 Transistor 1 Diode] Capacitorless DRAM using 28nm CMOS Technology
 
 Featured in this repository is the Design and Analysis of a 3T1D Capacitorless DRAM using the 28nm Process Design Kit implemented on the Synopsys Custom Design Platform.
 
@@ -71,7 +71,8 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
-The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html/'>Synopsys Custom Compiler</a></br>
+The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. 
+To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html/'>Synopsys Custom Compiler</a></br>
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -79,7 +80,8 @@ The Synopsys Custom Compiler™ design environment is a modern solution for full
 <p>
 
 <b>• Synopsys Primewave:</b></br>
-PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. To know more about the SPICE Simulator, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html/'>Synopsys Primesim HSPICE</a></br> 
+PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. 
+To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html/'>Synopsys PrimeWave Design Environment</a></br> 
 
 <b>• Synopsys 28nm PDK:</b></br>
 The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
@@ -179,19 +181,19 @@ Herewith is the Netlist generated for the above design:
 	.end
 
 # Observations & Conclusion:
-Thus, the design and analysis of the 3T1D Capacitorless DRAM has been successfully carried out on the with the following observations</br>
+Thus, the design and analysis of the 3T1D Capacitorless DRAM using 28nm CMOS has been successfully carried out on the Synopsys Custom Compiler with the following observations:</br>
 • The storage of data in this type of DRAM design is made possible via the use of a gated diode as an alternative to capacitor based DRAM cells.</br>
-• Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes</br>
-• The 3T1D design eliminates existing memory drawabacks associated with 4T and 3T1C based DRAM Designs.</br>
+• Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes.</br>
+• The 3T1D design eliminates existing memory drawabacks associated with the 4T and 3T1C based DRAM Designs.</br>
 
 # Author:
 • Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
 
 # Acknowledgements:
-• <a href='https://in.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836/'>Kunal Ghosh</a>,Founder, VLSI System Design (VSD) Corp. Pvt. Ltd</br>
+• <a href='https://in.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836/'>Kunal Ghosh</a>, Founder, VLSI System Design (VSD) Corp. Pvt. Ltd</br>
 • <a href='https://iith.ac.in/'>IIT Hyderabad</a></br>
 • <a href='https://www.synopsys.com/'>Synopsys India</a></br>
-• <a href='https://www.vlsisystemdesign.com/'>VLSI System Design (VSD) Corp. Pvt. Ltd India</a></br>
+• <a href='https://www.vlsisystemdesign.com/'>VLSI System Design (VSD) Corp. Pvt. Ltd. India</a></br>
 
 # References:
 [1] Prateek Asthana, Sangeeta Mahesh, “Performance Comparison of 4T, 3T and 3T1D DRAM cell design on 32 nm Technology”, 4th International Conference on Computer Science, Engineering and Applications, July 2014.</br>
