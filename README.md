@@ -40,11 +40,11 @@ Many different cell designs exist for modern day DRAM cell. These designs are di
 Figure above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
 The basis of the storage system is the charge placed in node S, written from BL write line when T1 is activated. Consequently, it has a DRAM cell nature, but it allows a non-destructive read process (a clear advantage over 1T1C memories) and high performance read and writes operation, comparable to 6T.With T1 and T3 transistors as accessing devices, the whole cell is composed by four transistors of similar size to the corresponding of 6T. This implies a more compact cell structure. In order to write the cell at the BL write line level it is only required to activate T1 through the WL write line. Hence, the S node stores either a 0 or a VDD-Vth voltage depending on the logic value. This voltage results in the accumulation of charge at the gate of devices D1 and T2.A key aspect of the 3T1D memory cell is that the capacitance of the gated diode (D1) when Vgs is above Vth is significantly higher with respect to lower voltages, because there is a substantial amount of charge stored in the inversion layer. In order to read the cell, the read bit line BL read has to be previously pre-charged at VDD level. Then T3 is activated from WL read line. If a high (1) level is stored in S, transistor T2 turns on and discharges the bit line. If a low (0) level is stored in S, transistor T2 does not reach enough conduction level. The objective of the gated diode D1 is to improve Read Access Time. When a high (1) level is stored in S, D1 connected to WL read line causes a boosting effect of the voltage level in node S. The voltage level reached at node S is close to Vdd voltage causing a fast discharge of the parasitic capacitance in BL read. If allow (0) level is stored, transistor T2 keeps turned off.
 
-# Pre-Layout Schematic and Simulation Waveform:
+# Pre-Layout Schematic and Simulation:
 
 ## Reference Circuit:
 
-Fig 2 shows the transistor-level reference schematic of the DRAM cell.
+Fig 2 shows the transistor-level schematic used as reference for DRAM design.
 <p align="center">
   <img src="Project Images/Reference Circuit.jpg"></br>
   Fig 2: Reference Circuit Diagram
@@ -71,7 +71,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
-The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
+The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html/'>Synopsys Custom Compiler</a></br>
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -79,7 +79,7 @@ The Synopsys Custom Compiler™ design environment is a modern solution for full
 <p>
 
 <b>• Synopsys Primewave:</b></br>
-PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. To know more about the SPICE Simulator, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html
+PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. To know more about the SPICE Simulator, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html/'>Synopsys Primesim HSPICE</a></br> 
 
 <b>• Synopsys 28nm PDK:</b></br>
 The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
@@ -115,7 +115,7 @@ The Testbench has been created using the Symbol designed previously and the Vpul
 After creating and saving the schematic go to 'Tools' and open 'Primewave' to start the simulation. In the Primewave select the 'model file' i.e the '28nm PDK's .lib file presentin the HSPICE folder. After this select the 'tran' analysis in the analysis window and give the 'Start', 'Stop', and 'Step Size' parameters and save it. Then add the outputs which needs to be plotted by selecting the nets on the schematic.</br> 
 Then go to 'Simulations -> Netlist and Run' to generate a netlist and run the simulation to get the below output.
 <p align="center">
-  <img src="Project Images/Trans Output.jpg"></br>
+  <img src="Project Images/Trans_output.jpg"></br>
   Fig. 7: Transient Analysis of the Testbench
 </p>
 The above graph has a Vsupply value of 1.2V and a total time period of 50ns.
@@ -124,67 +124,66 @@ The above graph has a Vsupply value of 1.2V and a total time period of 50ns.
 
 Herewith is the Netlist generated for the above design:
 
-*  Generated for: PrimeSim
-*  Design library name: lib1
-*  Design cell name: 3T1D_DRAM_tb
-*  Design view name: schematic
-.lib 'saed32nm.lib' TT
+	*  Generated for: PrimeSim
+	*  Design library name: lib1
+	*  Design cell name: 3T1D_DRAM_tb
+	*  Design view name: schematic
+	.lib 'saed32nm.lib' TT
 
-*Custom Compiler Version S-2021.09
-*Tue Feb 22 20:44:28 2022
+	*Custom Compiler Version S-2021.09
+	*Tue Feb 22 20:44:28 2022
 
-.global gnd!
-********************************************************************************
-* Library          : lib1
-* Cell             : 3T1D_DRAM
-* View             : schematic
-* View Search List : hspice hspiceD schematic spice veriloga
-* View Stop List   : hspice hspiceD
-********************************************************************************
-.subckt _3t1d_dram dramop rclk vc wrclk bit_line
-xm4 dramop net32 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
-xm3 gnd! vc gnd! gnd! n105 w=3.5u l=0.03u nf=1 m=1
-xm5 net32 rclk gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
-xm12 bit_line wrclk vc vc n105 w=3.5u l=30n nf=1 m=1
-xm0 gnd! vc gnd! gnd! n105 w=0.6u l=0.5u nf=1 m=1
-xm7 dramop net32 net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
-xm6 net32 gnd! net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
-vs1 net47 gnd! dc=1.2
-.ends _3t1d_dram
+	.global gnd!
+	********************************************************************************
+	* Library          : lib1
+	* Cell             : 3T1D_DRAM
+	* View             : schematic
+	* View Search List : hspice hspiceD schematic spice veriloga
+	* View Stop List   : hspice hspiceD
+	********************************************************************************
+	.subckt _3t1d_dram dramop rclk vc wrclk bit_line
+	xm4 dramop net32 gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+	xm3 gnd! vc gnd! gnd! n105 w=3.5u l=0.03u nf=1 m=1
+	xm5 net32 rclk gnd! gnd! n105 w=0.1u l=0.03u nf=1 m=1
+	xm12 bit_line wrclk vc vc n105 w=3.5u l=30n nf=1 m=1
+	xm0 gnd! vc gnd! gnd! n105 w=0.6u l=0.5u nf=1 m=1
+	xm7 dramop net32 net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
+	xm6 net32 gnd! net47 net47 p105 w=0.1u l=0.03u nf=1 m=1
+	vs1 net47 gnd! dc=1.2
+	.ends _3t1d_dram
 
-********************************************************************************
-* Library          : lib1
-* Cell             : 3T1D_DRAM_tb
-* View             : schematic
-* View Search List : hspice hspiceD schematic spice veriloga
-* View Stop List   : hspice hspiceD
-********************************************************************************
-xi1 op rclk vc wrclk bit_line _3t1d_dram
-vdatain bit_line gnd! dc=0 pulse ( 0 1.2 0 100p 100p 10n 20n )
-vr_clk rclk gnd! dc=0 pulse ( 0 1.2 6n 100p 100p 2n 10n )
-vwr_clk wrclk gnd! dc=0 pulse ( 0 1.2 0.2n 100p 100p 2n 10n )
+	********************************************************************************
+	* Library          : lib1
+	* Cell             : 3T1D_DRAM_tb
+	* View             : schematic
+	* View Search List : hspice hspiceD schematic spice veriloga
+	* View Stop List   : hspice hspiceD
+	********************************************************************************
+	xi1 op rclk vc wrclk bit_line _3t1d_dram
+	vdatain bit_line gnd! dc=0 pulse ( 0 1.2 0 100p 100p 10n 20n )
+	vr_clk rclk gnd! dc=0 pulse ( 0 1.2 6n 100p 100p 2n 10n )
+	vwr_clk wrclk gnd! dc=0 pulse ( 0 1.2 0.2n 100p 100p 2n 10n )
 
-.tran '1n' '50n' name=tran
+	.tran '1n' '50n' name=tran
 
-.option primesim_remove_probe_prefix = 0
-.probe v(*) i(*) level=1
-.probe tran v(op) v(rclk) v(vc) v(wrclk) v(bit_line)
+	.option primesim_remove_probe_prefix = 0
+	.probe v(*) i(*) level=1
+	.probe tran v(op) v(rclk) v(vc) v(wrclk) v(bit_line)
 
-.temp 25
+	.temp 25
 
-.option primesim_output=wdf
+	.option primesim_output=wdf
 
-.option parhier = LOCAL
+	.option parhier = LOCAL
 
-.end
+	.end
 
-
-# Observations:
-• Maximum frequency obtained for Supply voltage of 1.2V in 3-Stage Differential End CSVCO is around 22 GHz</br>
-• As expected the bias current flowing into the delay stages is increasing as the the control voltage is increasing.</br>
-• Also as expected the VCO's output frequency is increasing as the control voltage is increasing.</br>
-• It can also be observed as the number of delay cells increase the frequency of oscillation decreases.</br>
-• One other thing to be noted is that in the parametric sweep we can see that the 5 stage VCO's graph is more linear as compared to the 3 stage VCO's graph which means that the 5 stage VCO is more stable and has better phase SNR.</br>
+# Observations & Conclusion:
+The study and analysis of the Read Time, Write time of a 3T1D DRAM Capacitorless DRAM has been carried out with the following observations</br>
+• Since in this design, a gated diode is used as an alternative to capacitor to store the data, the absence of that capacitor reduces the power consumption as
+compared to capacitor based DRAM cell.</br>
+• Because the 3T-1D is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes</br>
+• Maximum frequency obtained for Supply voltage of 1.2V in 3T1D Capacitorless DRAM is around 100 MHz</br>
 
 # Author:
 • Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
@@ -195,5 +194,5 @@ vwr_clk wrclk gnd! dc=0 pulse ( 0 1.2 0.2n 100p 100p 2n 10n )
 • <a href='https://www.vlsisystemdesign.com/'>VLSI System Design (VSD) Corp. Pvt. Ltd India</a></br>
 
 # References:
-[1] B. Razavi. A 2-GHz 1.6-mW phase-locked loop. IEEE Journal of Solid-State Circuits 1997; 32 (5): 730-735.</br>
-[2] R.Rahul and R.Thilagavathy, "A low phase noise CMOS voltage-controlled differential ring oscillator,"ICCICCT,2014
+[1] Prateek Asthana, Sangeeta Mahesh, “Performance Comparison of 4T, 3T and 3T1D DRAM cell design on 32 nm Technology”, 4th International Conference on Computer Science, Engineering and Applications, July 2014.</br>
+[2] rof Y.N Thakare, Dr. S.N. Kale, “Comparative Analysis of 4T and 3T-1D DRAM to minimize Power Consumption”, Journal of Applied Science and Computations, ISSN NO: 1076-5131
