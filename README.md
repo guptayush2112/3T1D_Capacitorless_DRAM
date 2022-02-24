@@ -1,6 +1,6 @@
 # 3T1D [3 Transistor 1 Diode] Capacitorless DRAM
 
-Features in this repository is the Design and Analysis of a 3T1D Capacitorless DRAM using the 28nm Process Design Kit implemented on the Synopsys Custom Design Platform.
+Featured in this repository is the Design and Analysis of a 3T1D Capacitorless DRAM using the 28nm Process Design Kit implemented on the Synopsys Custom Design Platform.
 
 # Table of Contents
  * [Introduction](#Introduction)
@@ -71,13 +71,18 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
-&emsp;The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. This tool was used to design the circuit on a transistor level.
+&emsp;The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html
+
+<p align="center">
+  <img src="Project Images/custom_compiler_img.jpg"></br>
+</p>
+<p>
 
 <b>• Synopsys Primewave:</b></br>
-&emsp;PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. This tool helped in various types of simulations of the above designed circuit.
+&emsp;PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. This tool helped in various types of simulations of the above designed circuit. To know more about the SPICE Simulator, kindly refer to: https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html
 
 <b>• Synopsys 28nm PDK:</b></br>
-&emsp;The Synopsys 28nm Process Design Kit(PDK) was used in creation and simulation of the above designed circuit.
+&emsp;The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
 
 # Post-Layout Schematic and Simulation:
 
