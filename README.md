@@ -6,11 +6,11 @@ Featured in this repository is the Design and Analysis of a 3T1D Capacitorless D
  * [Introduction](#Introduction)
  * [Literature Survey on Memories](#Literature-Survey-on-Memories)
  * [3T1D DRAM Design](#3T1D-DRAM-Design)
- * [Reference Circuit](#Reference-Circuit)
- * [Reference Waveform](#Reference-Waveform)
+ * [Pre-Layout Schematic and Simulation](#Pre-Layout-Schematic-and-Simulation)
  * [Tools Used](#Tools-Used)
- * [Netlist of the Circuit](#Netlist-of-the-Circuit)
- * [Observations](#Observations)
+ * [Post-Layout Schematic and Simulation](#Post-Layout-Schematic-and-Simulation)
+ * [SPICE Netlist](#SPICE-Netlist)
+ * [Observations & Conclusion](#Observations-&-Conclusion)
  * [Author](#Author)
  * [Acknowledgements](#Acknowledgements)
  * [References](#References)
@@ -71,7 +71,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
-The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primesim-hspice.html/'>Synopsys Custom Compiler</a></br>
+The Synopsys Custom Compiler™ design environment is a modern solution for full-custom analog, custom digital, and mixed-signal IC design. As the heart of the Synopsys Custom Design Platform, Custom Compiler provides design entry, simulation management and analysis, and custom layout editing features. To know more about the tool, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html/'>Synopsys Custom Compiler</a></br>
 
 <p align="center">
   <img src="Project Images/custom_compiler_img.jpg"></br>
@@ -120,7 +120,7 @@ Then go to 'Simulations -> Netlist and Run' to generate a netlist and run the si
 </p>
 The above graph has a Vsupply value of 1.2V and a total time period of 50ns.
 
-## SPICE Netlist:
+# SPICE Netlist:
 
 Herewith is the Netlist generated for the above design:
 
@@ -179,17 +179,16 @@ Herewith is the Netlist generated for the above design:
 	.end
 
 # Observations & Conclusion:
-The study and analysis of the Read Time, Write time of a 3T1D DRAM Capacitorless DRAM has been carried out with the following observations</br>
+Thus, the design and analysis of the 3T1D Capacitorless DRAM has been successfully carried out on the with the following observations</br>
 • Since in this design, a gated diode is used as an alternative to capacitor to store the data, the absence of that capacitor reduces the power consumption as
-compared to capacitor based DRAM cell.</br>
-• Because the 3T-1D is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes</br>
-• Maximum frequency obtained for Supply voltage of 1.2V in 3T1D Capacitorless DRAM is around 100 MHz</br>
+compared to capacitor based DRAM cells.</br>
+• Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes</br>
 
 # Author:
 • Ayush Gupta, B.Tech(ECE), SRM Institute of Science and Technology, Kattankulattur, Chennai-603203.
 
 # Acknowledgements:
-• <a href='https://www.iith.ac.in/events/2022/02/15/Cloud-Based-Analog-IC-Design-Hackathon/'>Cloud Based Analog IC Design Hackathon</a></br>
+• <a href='https://iith.ac.in/'>IIT Hyderabad</a></br>
 • <a href='https://www.synopsys.com/'>Synopsys India</a></br>
 • <a href='https://www.vlsisystemdesign.com/'>VLSI System Design (VSD) Corp. Pvt. Ltd India</a></br>
 
