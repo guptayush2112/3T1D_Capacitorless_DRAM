@@ -81,7 +81,7 @@ To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-
 
 <b>• Synopsys Primewave:</b></br>
 PrimeWave™ Design Environment is a comprehensive and flexible environment for simulation setup and analysis of analog, RF, mixed-signal design, custom-digital and memory designs within the Synopsys Custom Design Platform. The transient analysis of the above schematic was made possible because of this very tool. 
-To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html'>Synopsys Custom Compiler</a></br>
+To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/ams-simulation/primewave.html'>Synopsys PrimeWave Design Environment</a></br>
 
 <b>• Synopsys 28nm PDK:</b></br>
 The 28 nanometer Process design kit by Synopsys was the focal point behind the Design and Analysis of this project.
@@ -117,11 +117,11 @@ The Testbench has been created using the Symbol designed previously and the Vpul
 in order to perform a successfull Transient Analysis simulation of the above Testbench Design, following steps were followed:
 1) After completion of Testbench design, click 'Save'
 2) Then, navigate to 'Tools' and in the drop-down menu of Tools, select 'Primewave'. 
-3) The Testsuite Simualtion window appears, Here, double-click on the 'model file' and then in include path paste '/PDK/SAED_PDK32nm/hspice'.
+3) The Testsuite Simulation window appears, here double-click on the 'model file' and then in the include path option paste '/PDK/SAED_PDK32nm/hspice'.
 4) Then click to add Model File and select from that folder the 'saed32nm.lib', that is, the 28nm PDK's .lib file presentin the HSPICE folder and set section as 'TT'. Click Ok.
 5) Now double click on Analyses and you should see the Analysis window appear. Select from here '.tran' analysis and give the 'Start', 'Stop', and 'Step Size' parameters and save it by clicking Ok. 
 6) Then add the outputs which need to be plotted by selecting the nets from the 'Pick from design' option.</br> 
-7) Then navigate to 'Simulations and click 'Netlist and Run' to generate the SPICE netlist and get the Output waveform on the Waveview Simulation window.
+7) Then navigate to 'Simulations' and click 'Netlist and Run' to generate the SPICE netlist and get the Output waveform on the Waveview Simulation window.
 
 <p align="center">
   <img src="Project Images/Trans_output.jpg"></br>
