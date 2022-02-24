@@ -34,18 +34,11 @@ Many different cell designs exist for modern day DRAM cell. These designs are di
 
 
 <p align="center">
-<img src="Images/current_mirror.jpg"></br>
-  Fig. 1: Current Mirror 
+<img src="Project Images/3T1D Cell.jpg"></br>
+  Fig. 1: 3T1D DRAM Cell
 </p>
-As the control voltage increases, the amount of current flowing through circuit also increases, hence increasing the switching speed of delay cell, thereby increasing oscillation frequency.
+Fig. above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
 
-We can explain advantage of current starved technique in two parts which are:-
-
-1) Why amplitude of oscillation is constant for varying control voltage.
-2) How are we limiting current and hence saving power.
-
-First, let us consider the first point (1) thinking in terms of voltage. When control voltage is above threshold, N-MOS or N1 in current mirror will be in active region and conducts efficiently, hence potential of ground is available at gate of P-MOS which activates the corresponding P-MOS as well. Since, all the gates of P-MOS are P1,P2,P3…Pn are interconnected and operating all the P-MOS in active region. This will make Vx=Vdd. Due to this reason the amplitude of oscillations is maintained for different frequency.
-Now, considering second point (2) we think in terms of current. We know that in N-MOS as gate potential increases conductivity of N-MOS increases, so as control voltage increases the amount of current(I) flowing through N-MOS also increases. Hence, the current flowing into delay cells also increases as it is part of current mirror. Therefore, we can limit the amount of current flowing into circuit thereby saving power.
 
 The frequency of oscillation of the Voltage Controlled Oscillator is given by:
 
@@ -77,23 +70,16 @@ So, the final equation will look like,
 	   	Id = ain Current of the MOSFET
 
 
-# Differential End Current Starved VCO:
+# Reference Circuit:
 
 The fig. 2 represents the differential inverter in which M1 and M2 form an inverter and M3 and M4 form another inverter. They act as two different inverters with the same power supply. We use this inverter as building block for forming the current starved differential VCO.
 <p align="center">
-  <img src="Images/differential_delay_cell.jpg"></br>
-  Fig. 2: Differential Delay Cell
+  <img src="Project Images/reference circuit.jpg"></br>
+  Fig. 2: Reference Circuit Diagram of 3T-1D DRAM
 </p>
 <p>
-In the Current Starved Differential VCO, the delay stages are replaced by differential delay cells. The current starved Differential VCO is shown in Fig. 3. The bottom two NMOS in the delay forms the pull-down network. M4, M5, M6, M7 forms one delay cell. The three number of delay cells are used to build a VCO to increase the oscillation frequency and gain. By using differential delay cell, the leakage power can be reduced with a lesser Phase Noise.
-</p>
-<p>
-Coming to the working of the current starved differential VCO when the control voltage is above threshold voltage the MOSFET M1 starts conducting and the current mirror MOSFETs M1, M2, M3, M9, M15 comes into active region. Also the differential inverter switched on because the MOSFETs M3,M9,M15 starts conducting. In the CSDVCO the out+ -> in- -> out- ->  in+ -> out+ -> in+ form a loop and the other set forms another loop. The input keeps on inverting from one stage to the next and hence the VCO starts generating oscillations. And as the control voltage increases the frequency of oscillations also increases linearly as in the case of a conventional VCO.
-</p>
-<p align="center">
-  <img src="Images/differential_end_CSVCO.png"></br>
-  Fig. 3: Differential End Current Starved VCO
-</p>
+This 3T-1D DRAM cell is very different from all others DRAM cell. Its key feature is that it provides non-destructive read operation and also its speed of operation is high, it gives less leakage power and is more stable than the SRAM and other capacitor-based DRAMs. Variation only affects the operating frequency of the cell,making it much more robust to process variations than the 6T design. Fig. 1[a] represents a 3T-1D DRAM cell and Fig 1[b] shows the transistor- level reference schematic of the cell. To write to the cell, the write bitline is charged to the value we wish to store in the cell, and the write wordline is strobe. To read from the cell, the read bitline is precharged high and the read wordline is strobe. If a 1 is stored in the cell, transistor T2 turns on and the bitline discharges. The key to fast access times is the gated diode, which is tied to the read wordline. When a 1 is stored in the cell, the diode provides a ‘boosting’ effect to the value at the storage temporarily giving it a value close to (and sometimes greater than) Vdd, allowing T2 to turn on quickly and discharge the bitline. When a 0 is stored in the cell, the capacitance of D1 is smaller and little to no voltage boosting occurs, keeping T2 turned off. Because the 3T-1D is a dynamic memory, the value at the storage node[s] leaks away with time.
+
 
 # Tools Used:
 
