@@ -1,6 +1,6 @@
 # 3T1D [3 Transistor 1 Diode] Capacitorless DRAM
 
-This repository presents the design of Differential End CSVCO implemented using Synopsis Custom Compiler on 28nm CMOS Technology.
+Features in this repository is the Design and Analysis of a 3T1D Capacitorless DRAM using the 28nm Process Design Kit implemented on the Synopsys Custom Design Platform.
 
 # Table of Contents
  * [Introduction](#Introduction)
