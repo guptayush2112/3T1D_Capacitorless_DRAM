@@ -4,7 +4,7 @@ This repository presents the design of Differential End CSVCO implemented using 
 
 # Table of Contents
  * [Introduction](#Introduction)
- * [Literature Survey on Memories](# Literature Survey on Memories)
+ * [Current Starving Technique](#Current-Starving-Technique)
  * [Differential End Current Starved VCO](#Differential-End-Current-Starved-VCO)
  * [Tools Used](#Tools-Used)
  * [Pre-Layout Schematics and Simulations](#Pre-Layout-Schematics-and-Simulations)
@@ -22,7 +22,7 @@ Memories play an essential role in design of any electronics design where storag
 per bit of memory. They are mostly used as cache memories. DRAMS on the other hand are dynamic in nature and slower as compared to SRAM. DRAM are expensive and consume more
 power, they require less transistor per bit of memory. They are mostly used as main memories. DRAM is widely used for main memories in personal and mainframe computers and engineering workstation. DRAM memory cell is used for read and write operation for single bit storage for circuits. A single DRAM cell is capable of storing 1 bit data in the capacitor in the form of charge. Charge of the capacitor decreases with time .Hence refresh signals are used to refresh the data in the capacitor. When a read signal reads the data it refreshes it as well. Many different cell designs exist for modern day DRAM cell. These designs are differentiated by the no. of transistors used in their designing. As the no. of transistors increase, power dissipation also increases. DRAM is one of the most common and cost efficient random access memory used as main memory for workstations. The charge stored in memory cell is time dependent. For high density memories DRAM cell with low power consumption and less area are preferred.
 
-# Literature Survey on Memories:
+# Current Starving Technique:
 
 Volatile memories enclose mainly two different types, static memories known as SRAM (Static RAM) and dynamic memories, DRAM (Dynamic RAM). The main difference between them is the time while they can store the information without any loss. SRAM on one hand, keep the information as long as they are powered. Only if the power is unplugged their content is lost. On the other hand, DRAM cells store the data for a short period of time, around milliseconds. To avoid losing data with time, DRAM takes advantage of block known as DRAM controller, which permits the memory to be refreshed before the data is corrupted and therefore irrecoverable. So, there exists a way to keep the data safe on a DRAM.
 The advantage of DRAM compared to SRAM is that they consume less area. This reduced surface leads to memory chips with larger storage capacity and lower cost.
