@@ -1,4 +1,4 @@
-# 3T1D [3 Transistor 1 Diode] Capacitorless DRAM using 28nm CMOS Technology
+# 3T1D Capacitorless DRAM using 28nm CMOS Technology
 
 Featured in this repository is the Design and Analysis of a 3T1D Capacitorless DRAM using the 28nm Process Design Kit implemented on the Synopsys Custom Design Platform.
 
