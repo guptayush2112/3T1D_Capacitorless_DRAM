@@ -6,9 +6,9 @@ This repository presents the design of Differential End CSVCO implemented using 
  * [Introduction](#Introduction)
  * [Literature Survey on Memories](#Literature-Survey-on-Memories)
  * [3T1D DRAM Design](#3T1D-DRAM-Design)
- * [Differential End Current Starved VCO](#Differential-End-Current-Starved-VCO)
+ * [Reference Circuit](#Reference-Circuit)
+ * [Reference Waveform](#Reference-Waveform)
  * [Tools Used](#Tools-Used)
- * [Pre-Layout Schematics and Simulations](#Pre-Layout-Schematics-and-Simulations)
  * [Netlist of the Circuit](#Netlist-of-the-Circuit)
  * [Observations](#Observations)
  * [Author](#Author)
@@ -35,52 +35,39 @@ Many different cell designs exist for modern day DRAM cell. These designs are di
 
 <p align="center">
 <img src="Project Images/3T1D Cell.jpg"></br>
-  Fig. 1: 3T1D DRAM Cell
+  Fig 1: 3T1D DRAM Cell
 </p>
-Fig. above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
+Figure above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
+The basis of the storage system is the charge placed in node S, written from BL write line when T1 is activated. Consequently, it has a DRAM cell nature, but it allows a non-destructive read process (a clear advantage over 1T1C memories) and high performance read and writes operation, comparable to 6T.With T1 and T3 transistors as accessing devices, the whole cell is composed by four transistors of similar size to the corresponding of 6T. This implies a more compact cell structure. In order to write the cell at the BL write line level it is only required to activate T1 through the WL write line. Hence, the S node stores either a 0 or a VDD-Vth voltage depending on the logic value. This voltage results in the accumulation of charge at the gate of devices D1 and T2.A key aspect of the 3T1D memory cell is that the capacitance of the gated diode (D1) when Vgs is above Vth is significantly higher with respect to lower voltages, because there is a substantial amount of charge stored in the inversion layer. In order to read the cell, the read bit line BL read has to be previously pre-charged at VDD level. Then T3 is activated from WL read line. If a high (1) level is stored in S, transistor T2 turns on and discharges the bit line. If a low (0) level is stored in S, transistor T2 does not reach enough conduction level. The objective of the gated diode D1 is to improve Read Access Time. When a high (1) level is stored in S, D1 connected to WL read line causes a boosting effect of the voltage level in node S. The voltage level reached at node S is close to Vdd voltage causing a fast discharge of the parasitic capacitance in BL read. If allow (0) level is stored, transistor T2 keeps turned off.
 
+# Pre-Layout Schematic and Simulation Waveform:
 
-The frequency of oscillation of the Voltage Controlled Oscillator is given by:
+## Reference Circuit:
 
-           f = 1/2Nτ
-           
-    Where, N = Number of stages 
-           Ʈ = Propagation delay of the cell
-           
-Total capacitance at the drain of M2 and M3 is given by
-
-           Ctotal(t) = Cin + Cout
-           Ctotal(t) = Cox(WpLp+WnLn) + 3/2Cox(WpLp+WnLn)
-           Ctotal(t) = 5/2 Cox(WpLp+WnLn)  
-           
-    Where, Cout and Cin represent the input and output capacitance of inverter respectively.
-           Wp and Wn are the widths of PMOS and NMOS respectively. 
-           Lp and Ln are the lengths of the PMOS and NMOS respectively. 
-           Cox is the oxide capacitance of the transistor.
-   
-So, the final equation will look like,
-
-           Ʈ = Ʈ1+ Ʈ2 = Ctotal*Vdd/Id
-           f = Id/(N*Ctotal*Vdd )
-           
-    Where,	f = Frequency of oscillation of VCO,
-	   	N = Number of stages of delay in VCO,
-	   	Ctotal = Total internal capacitance of the circuit,
-	   	Vdd = Supply voltage of the circuit,
-	   	Id = ain Current of the MOSFET
-
-
-# Reference Circuit:
-
-The fig. 2 represents the differential inverter in which M1 and M2 form an inverter and M3 and M4 form another inverter. They act as two different inverters with the same power supply. We use this inverter as building block for forming the current starved differential VCO.
+Fig 2 shows the transistor-level reference schematic of the DRAM cell.
 <p align="center">
-  <img src="Project Images/reference circuit.jpg"></br>
-  Fig. 2: Reference Circuit Diagram of 3T-1D DRAM
+  <img src="Project Images/Reference Circuit.jpgg"></br>
+  Fig 2: Reference Circuit Diagram
 </p>
 <p>
-This 3T-1D DRAM cell is very different from all others DRAM cell. Its key feature is that it provides non-destructive read operation and also its speed of operation is high, it gives less leakage power and is more stable than the SRAM and other capacitor-based DRAMs. Variation only affects the operating frequency of the cell,making it much more robust to process variations than the 6T design. Fig. 1[a] represents a 3T-1D DRAM cell and Fig 1[b] shows the transistor- level reference schematic of the cell. To write to the cell, the write bitline is charged to the value we wish to store in the cell, and the write wordline is strobe. To read from the cell, the read bitline is precharged high and the read wordline is strobe. If a 1 is stored in the cell, transistor T2 turns on and the bitline discharges. The key to fast access times is the gated diode, which is tied to the read wordline. When a 1 is stored in the cell, the diode provides a ‘boosting’ effect to the value at the storage temporarily giving it a value close to (and sometimes greater than) Vdd, allowing T2 to turn on quickly and discharge the bitline. When a 0 is stored in the cell, the capacitance of D1 is smaller and little to no voltage boosting occurs, keeping T2 turned off. Because the 3T-1D is a dynamic memory, the value at the storage node[s] leaks away with time.
+This 3T-1D DRAM cell is very different from all others DRAM cell. Its key feature is that it provides non-destructive read operation and also its speed of operation is high, it gives less leakage power and is more stable than the SRAM and other capacitor-based DRAMs. Variation only affects the operating frequency of the cell,making it much more robust to process variations than the 6T design. The figure above shows us the transistor- level reference schematic of the cell. 
 
+To write to the cell, the write bitline is charged to the value we wish to store in the cell, and the write wordline is strobe. To read from the cell, the read bitline is precharged high and the read wordline is strobe. If a 1 is stored in the cell, transistor T2 turns on and the bitline discharges. The key to fast access times is the gated diode, which is tied to the read wordline. When a 1 is stored in the cell, the diode provides a ‘boosting’ effect to the value at the storage temporarily giving it a value close to (and sometimes greater than) Vdd, allowing T2 to turn on quickly and discharge the bitline. When a 0 is stored in the cell, the capacitance of D1 is smaller and little to no voltage boosting occurs, keeping T2 turned off. Because the 3T-1D is a dynamic memory, the value at the storage node[s] leaks away with time.
 
+## Reference Waveform:
+A reference waveform expected at the end of the simulation and analysis of the above schematic is shown in the figure below. 
+The waveform includes 5 plots [in the order of appearance] on the X Axis - 
+1) Bitline
+2) WRCLK [Write Signal]
+3) Vc [Storage Node]
+4) RCLK [Read Signal]
+5) DRAMOP [Read Signal Output]
+<p align="center">
+  <img src="Project Images/Reference Waveform.jpg"></br>
+  Fig 3: Pre-Simulation Waveform
+</p>
+<p>
+	
 # Tools Used:
 
 <b>• Synopsys Custom Compiler:</b></br>
@@ -92,83 +79,45 @@ This 3T-1D DRAM cell is very different from all others DRAM cell. Its key featur
 <b>• Synopsys 28nm PDK:</b></br>
 &emsp;The Synopsys 28nm Process Design Kit(PDK) was used in creation and simulation of the above designed circuit.
 
-# Pre-Layout Schematics and Simulations:
+# Post-Layout Schematic and Simulation:
 
-## Schematics:
+## Schematic:
 
-### Differential Delay Cell:
-Initially Schematic of the Differential Delay cell was implemented and converted into a symbol so that it could be used directly as delay cell from the library.
+### Transistor-level Schematic:
+Keeping in mind the Reference circuit diagram above, the schematic of the DRAM was designed at a transistor-level using the 28nm PDK library on the Custom Compiler Schematic Editor.
 <p align="center">
-  <img src="Images/differential_delay_cell_schematic.png"></br>
-  Fig. 4: Differential Delay Cell Schematic
-</p>
-<p align="center">
-  <img src="Images/differential_delay_cell_symbol.png"></br>
-  Fig. 5: Differential Delay Cell Symbol
+  <img src="Project Images/3T1D DRAM Schematic.jpg"></br>
+  Fig. 4: 3T1D DRAM Schematic
 </p>
 
-### Buffer:
-This component is used to convert the generated sine wave to a proper square pulse and is placed at the output of the VCO. This is nothing but a couple of inverters placed in series. 
+### Symbol:
+Initially, after designing the schematic, it was then converted to a symbol so as to be used for further reference while designing the testbench for the same.
 <p align="center">
-  <img src="Images/buffer_schematic.png"></br>
-  Fig. 6: Buffer Schematic
-</p>
-<p align="center">
-  <img src="Images/buffer_symbol.png"></br>
-  Fig. 7: Buffer Symbol
+  <img src="Project Images/3T1D DRAM Schematic.jpg"></br>
+  Fig. 5: Symbol Design
 </p>
 
-### Differential End Current Starved VCO:
-The schematic of Differential End CSVCO has been created using the above cells and a few transistors as shown in the below figure.
+### Testbench:
+The Testbench has been created using the Symbol designed previously and the Vpulse and Vsupply values have been set.
 <p align="center">
-  <img src="Images/differential_CSVCO_schematic.png"></br>
-  Fig. 8: 3-Stage Differential End Current Starved VCO Schematic
-</p>
-<p align="center">
-  <img src="Images/Differential_csvco_5stage_schematic.JPG"></br>
-  Fig. 9: 5-Stage Differential End Current Starved VCO Schematic
-</p>
+  <img src="Project Images/Testbench Schematic.jpg"></br>
+  Fig. 6: Testbench Design
 
-## Simulations:
+
+## Simulation:
+
 ### Transient Analysis:
-After creating and saving the schematic go to 'Tools' and open 'Primewave' to start the simulation. In the Primewave select the 'model file' i.e the '28nm PDK's .lib file presentin the HSPICE folder. After this select the 'tran' analysis in the analysis window and give the 'Start', 'Stop', and 'Step Size' parameters and save it. Then add the outputs which needs to be plotted by selecting the nets on the schematic.</br>
-One other thing we need to keep in mind is that here we have loop for which an initial condition needs to be declared. For that, we have to go to 'Setup -> Convergance aids' and select the net for which we want to set an initial condition.Then go to 'Simulations -> Netlist and Run' to generate a netlist and run the simulation to get the below output.
+After creating and saving the schematic go to 'Tools' and open 'Primewave' to start the simulation. In the Primewave select the 'model file' i.e the '28nm PDK's .lib file presentin the HSPICE folder. After this select the 'tran' analysis in the analysis window and give the 'Start', 'Stop', and 'Step Size' parameters and save it. Then add the outputs which needs to be plotted by selecting the nets on the schematic.</br> 
+Then go to 'Simulations -> Netlist and Run' to generate a netlist and run the simulation to get the below output.
 <p align="center">
-  <img src="Images/differential_CSVCO_tran.png"></br>
-  Fig. 10: Differential End Current Starved VCO Transient Analysis
+  <img src="Project Images/Trans Output.jpg"></br>
+  Fig. 7: Transient Analysis of the Testbench
 </p>
-The output frequency for the above graph is 'fout = 12.406 GHz' ('Vctrl = 500mV' and 'Vsupp = 1.2V')
+The above graph has a Vsupply value of 1.2V and a total time period of 50ns.
 
-### Parametric Sweep:
-This is basically used to plot any output attribute over varying input attribute. Specific to this design we are going to vary the control voltage and supply voltage to plot the varying frequency. For this, in the schematic we have to give a variable in the 'DC Voltage' parameter of the VDC components. Then add this variables in the Primewave under variables window and select 'sweep' in that window for each variable. In the parametric sweep window give the 'Start', 'Stop' and 'Step Size'. In the outputs add the function to calculate frequency and run the simulation to get the below output.
-<p align="center">
-  <img src="Images/parametric_sweep_one variable.png"></br>
-  Fig. 11: Control Voltage vs Frequency graph for 1.2V Supply Voltage in 3-stage Differential End CSVCO.
-</p>
-
-<p align="center">
-  <img src="Images/parametric_sweep.png"></br>
-  Fig. 12: Control Voltage vs Frequency graph for varying Supply Voltage in 3-stage Differential End CSVCO.
-</p>
-<p align="center">
-  <img src="Images/Differential_csvco_3stage_frequency_table.JPG"></br>
-  Fig. 13: Control Voltage and Frequency table for different Supply Voltage values in 3-stage Differential End CSVCO.
-</p>
-
-<p align="center">
-  <img src="Images/Differential_csvco_5stage_frequency_analysis.JPG"></br>
-  Fig. 14: Control Voltage vs Frequency graph for varying Supply Voltage in 5-stage Differential End CSVCO.
-</p>
-
-<p align="center">
-  <img src="Images/Differential_csvco_5stage_frequency_table.JPG"></br>
-  Fig. 15: Control Voltage and Frequency table for different Supply Voltage values in 5-stage Differential End CSVCO.
-</p>
-
-# Netlist of the Circuit:
+## SPICE Netlist:
 
 Refer to the netlist of the 3-Stage Differential End CSVCO here: <a href='differential_CSVCO.cir.out'>Netlist</a>
-
 Refer to the netlist of the 5-Stage Differential End CSVCO here: <a href='Differential_csvco_5stage.cir.out'>Netlist</a>
 
 # Observations:
