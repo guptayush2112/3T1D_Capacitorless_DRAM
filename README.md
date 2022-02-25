@@ -5,7 +5,8 @@ Featured in this repository is the Design and Analysis of a 3T1D Capacitorless D
 # Table of Contents
  * [Introduction](#Introduction)
  * [Literature Survey on Dynamic Memory](#Literature-Survey-on-Dynamic-Memory)
- * [3T1D DRAM Design](#3T1D-DRAM-Design)
+ * [DRAM Cell Design](#DRAM-Cell-Design)
+ * [Working Principle](#Working-Principle)
  * [Reference Schematic and Simulation](#Reference-Schematic-and-Simulation)
  * [Tools Used](#Tools-Used)
  * [Schematic Design and Simulation](#Schematic-Design-and-Simulation)
@@ -33,7 +34,7 @@ Moreover, the scaling of the conventional 1Transistor/1Capacitor (1T/1C) DRAM is
 
 This problem has a resolution, that is, the help of 3T-1D structure. In this 3T-1D DRAM structure by simply joining source and drain of N-mos transistor we can produce voltage controlled capacitor diode hence the name 3T-1D cell.
 
-# 3T1D DRAM Design
+# DRAM Cell Design
 
 A single DRAM cell is capable of storing 1 bit data in the capacitor in the form of charge. Charge of the capacitor decreases with time. Hence refresh signals are used to refresh the data in the capacitor. When a read signal reads the data it refreshes it as well. Many different cell designs exist for modern day DRAM cell. These designs are differentiated by the no. of transistors used in their designing. As the no. of transistors increase, power dissipation also increases. 
 
@@ -42,6 +43,8 @@ A single DRAM cell is capable of storing 1 bit data in the capacitor in the form
   Fig 1: 3T1D DRAM Cell
 </p>
 Figure above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
+
+# Working Principle
 The basis of the storage system is the charge placed in node S, written from BL write line when T1 is activated. Consequently, it has a DRAM cell nature, but it allows a non-destructive read process (a clear advantage over 1T1C memories) and high performance read and writes operation, comparable to 6T. With T1 and T3 transistors as accessing devices, the whole cell is composed by four transistors of similar size to the corresponding of 6T. This implies a more compact cell structure. In order to write the cell at the BL write line level it is only required to activate T1 through the WL write line. Hence, the S node stores either a 0 or a VDD-Vth voltage depending on the logic value. This voltage results in the accumulation of charge at the gate of devices D and T2. A key aspect of the 3T1D memory cell is that the capacitance of the gated diode (D) when Vgs is above Vth is significantly higher with respect to lower voltages, because there is a substantial amount of charge stored in the inversion layer. In order to read the cell, the read bit line BL read has to be previously pre-charged at VDD level. Then T3 is activated from WL read line. If a high (1) level is stored in S, transistor T2 turns on and discharges the bit line. If a low (0) level is stored in S, transistor T2 does not reach enough conduction level. The objective of the gated diode D is to improve Read Access Time. When a high (1) level is stored in S, D connected to WL read line causes a boosting effect of the voltage level in node S. The voltage level reached at node S is close to Vdd voltage causing a fast discharge of the parasitic capacitance in BL read. If allow (0) level is stored, transistor T2 keeps turned off.
 
 # Reference Schematic and Simulation:
