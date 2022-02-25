@@ -103,6 +103,7 @@ The 28 nanometer Process design kit by Synopsys was the focal point behind the D
 
 ### Transistor-level Schematic:
 The schematic of the DRAM was designed at a transistor-level using the 28nm PDK library on the Custom Compiler Schematic Editor.
+Circuit Improvisation: The DRAMOP will get a high signal for when it has to be low depending upon the bit_line and Read Signal so to avoid this, the circuit is implemened by connecting the Body of the Transistor labelled as NMOS_5 in the Fig 2 [Reference Circuit Diagram] to the same node as the source of the transistor instead of going to the GND directly.
 <p align="center">
   <img src="Project Images/Schematic.jpg"></br>
   Fig. 4: 3T1D DRAM Schematic
