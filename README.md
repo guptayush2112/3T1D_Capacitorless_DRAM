@@ -100,14 +100,14 @@ The 28 nanometer Process design kit by Synopsys was the focal point behind the D
 ### Transistor-level Schematic:
 Keeping in mind the Reference circuit diagram above, the schematic of the DRAM was designed at a transistor-level using the 28nm PDK library on the Custom Compiler Schematic Editor.
 <p align="center">
-  <img src="Project Images/3T1D DRAM Schematic.jpeg"></br>
+  <img src="Project Images/3T1D DRAM Schematic.jpg"></br>
   Fig. 4: 3T1D DRAM Schematic
 </p>
 
 ### Symbol:
 Initially, after designing the schematic, it was then converted to a symbol so as to be used for further reference while designing the testbench for the same.
 <p align="center">
-  <img src="Project Images/lib1_3T1D_DRAM_symbol.png"></br>
+  <img src="Project Images/symbol.jpg"></br>
   Fig. 5: Symbol Design
 </p>
 
@@ -115,7 +115,7 @@ Initially, after designing the schematic, it was then converted to a symbol so a
 The Testbench has been created using the Symbol designed previously and the Vpulse and Vsupply values have been set.
 
 <p align="center">
-  <img src="Project Images/Testbench Schematic.jpeg"></br>
+  <img src="Project Images/Testbench Schematic.jpg"></br>
   Fig. 6: Testbench Design
 
 
