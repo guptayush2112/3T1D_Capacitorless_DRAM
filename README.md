@@ -197,7 +197,7 @@ Herewith is the Netlist generated for the above design:
 Thus, the design and analysis of the 3T1D Capacitorless DRAM using 28nm CMOS has been successfully carried out on the Synopsys Custom Compiler with the following observations:</br>
 
 • The storage of data in this type of DRAM design is made possible via the use of a gated diode as an alternative to capacitor based DRAM cells.</br>
-• Because the 3T-1D DRAM is a dynamic memory, the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes.</br>
+• Because the 3T-1D DRAM is a dynamic memory the value at the storage node[Vc] leaks away with time but because of its resistance to process variation, this 3T1D DRAM does not slow down as its size is scaled down helping it to be used at low feature sizes.</br>
 • The 3T1D design eliminates existing memory drawabacks and scalability issues associated with the 4T and 3T1C based DRAM Designs.</br>
 
 # Author:
