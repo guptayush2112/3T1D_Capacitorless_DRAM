@@ -26,7 +26,7 @@ power, they require less transistor per bit of memory. DRAM is widely used for m
 
 # Literature Survey on Dynamic Memory:
 
-The two types of volatile memories, that is, SRAM (Static RAM) and DRAM (Dynamic RAM) have one major difference between them which being the time they can store the information without any loss. SRAM on one hand, keep the information as long as they are powered. Only if the power is unplugged their content is lost. On the other hand, DRAM cells store the data for a short period of time, around milliseconds. To avoid losing data with time, DRAM takes advantage of block known as DRAM controller, which permits the memory to be refreshed before the data is corrupted and therefore irrecoverable. So, there exists a way to keep the data safe on a DRAM.
+The two types of volatile memories, that is, SRAM (Static RAM) and DRAM (Dynamic RAM) have one major difference between them which being the time they can store the information without any loss. SRAM on one hand, keep the information as long as they are powered. Only if the power is unplugged their content is lost. On the other hand, DRAM cells store the data for a short period of time, around milliseconds. To avoid losing data with time, DRAM takes advantage of a block known as DRAM controller, which permits the memory to be refreshed before the data is corrupted and therefore irrecoverable. So, there exists a way to keep the data safe on a DRAM.
 
 Dynamic random access memory (DRAM) is a type of memory that stores each bit of data in a separate capacitor within an integrated circuit. The basic DRAM cell consists of one transistor and one capacitor. Due to the leakage of the capacitors, the information eventually fades unless the capacitor charge is refreshed periodically. This refresh requirement makes DRAM a dynamic memory as opposed to SRAM (Static random access memory). Recently the capacitorless DRAMs have attracted attention, due to the lack of the capacitor and the problems associated with the scaling of the capacitor, and due to its ability to achieve higher device density.
 
@@ -126,14 +126,7 @@ The Testbench has been created using the Symbol designed previously and the Vpul
 ## Simulation:
 
 ### Transient Analysis:
-in order to perform a successfull Transient Analysis simulation of the above Testbench Design, following steps were followed:
-1) After completion of Testbench design, click 'Save'
-2) Then, navigate to 'Tools' and in the drop-down menu of Tools, select 'Primewave'. 
-3) The Testsuite Simulation window appears, here double-click on the 'model file' and then in the include path option paste '/PDK/SAED_PDK32nm/hspice'.
-4) Then click to add Model File and select from that folder the 'saed32nm.lib', that is, the 28nm PDK's .lib file presentin the HSPICE folder and set section as 'TT'. Click Ok.
-5) Now double click on Analyses and you should see the Analysis window appear. Select from here '.tran' analysis and give the 'Start', 'Stop', and 'Step Size' parameters and save it by clicking Ok. 
-6) Then add the outputs which need to be plotted by selecting the nets from the 'Pick from design' option.</br> 
-7) Then navigate to 'Simulations' and click 'Netlist and Run' to generate the SPICE netlist and get the Output waveform on the Waveview Simulation window.
+In order to perform a successful Transient Analysis simulation of the above Testbench Design, the 28nm PDK library file was imported and then the parameter values of Start & Stop time alongwith step size were given so as to plot the desired waveform on the Waveview Simulation window.
 
 <p align="center">
   <img src="Project Images/Trans_output.jpg"></br>
