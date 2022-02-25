@@ -102,7 +102,7 @@ The 28 nanometer Process design kit by Synopsys was the focal point behind the D
 ## Schematic:
 
 ### Transistor-level Schematic:
-Keeping in mind the Reference circuit diagram above, the schematic of the DRAM was designed at a transistor-level using the 28nm PDK library on the Custom Compiler Schematic Editor.
+The schematic of the DRAM was designed at a transistor-level using the 28nm PDK library on the Custom Compiler Schematic Editor.
 <p align="center">
   <img src="Project Images/Schematic.jpg"></br>
   Fig. 4: 3T1D DRAM Schematic
