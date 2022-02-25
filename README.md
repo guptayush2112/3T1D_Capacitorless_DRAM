@@ -107,7 +107,7 @@ Keeping in mind the Reference circuit diagram above, the schematic of the DRAM w
 ### Symbol:
 Initially, after designing the schematic, it was then converted to a symbol so as to be used for further reference while designing the testbench for the same.
 <p align="center">
-  <img src="Project Images/symbol.jpeg"></br>
+  <img src="Project Images/lib1_3T1D_DRAM_symbol.png"></br>
   Fig. 5: Symbol Design
 </p>
 
