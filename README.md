@@ -65,7 +65,6 @@ From the Fig 1, we can say that our Memory architecture is designed in a way in 
 The Read and write operations take place as follows-
 To write to the cell, the write bitline is charged to the value we wish to store in the cell, and the write wordline is strobe. To read from the cell, the read bitline is precharged high and the read wordline is strobe. If a 1 is stored in the cell, transistor T2 turns on and the bitline discharges. The key to fast access times is the gated diode, which is tied to the read wordline. When a 1 is stored in the cell, the diode provides a ‘boosting’ effect to the value at the storage temporarily giving it a value close to (and sometimes greater than) Vdd, allowing T2 to turn on quickly and discharge the bitline. When a 0 is stored in the cell, the capacitance of D is smaller and little to no voltage boosting occurs, keeping T2 turned off. Because the 3T-1D is a dynamic memory, the value at the storage node[s] leaks away with time.
 <p>
-Circuit Improvisation: The DRAMOP has to be low when the Read Signal is High and bit_line is Low which is only possible when we connect the Body of the Transistor labelled as NMOS_5 in the Fig 2 to the same node as the source of the transistor instead of going to the GND directly. Contrary to this, if we ground the body of NMOS_5 transistor directly, we will get a high signal for when it has to be low for the values of bit_line and Read Signal, hence to avoid this, the circuit is implemented as shown in Fig 4 below.
 	
 ## Reference Waveform:
 A reference waveform expected at the end of the simulation and analysis of the above schematic is shown in the figure below. 
@@ -111,6 +110,8 @@ The schematic of the DRAM was designed at a transistor-level using the 28nm PDK 
   <img src="Schematics/Schematic.jpg"></br>
   Fig. 4: 3T1D DRAM Schematic
 </p>
+
+Note: The DRAMOP has to be low when the Read Signal is High and bit_line is Low which is only possible when we connect the Body of the Transistor labelled as NMOS_5 in the Fig 2 to the same node as the source of the transistor instead of going to the GND directly. Contrary to this, if we ground the body of NMOS_5 transistor directly, we will get a high signal for when it has to be low for the values of bit_line and Read Signal, hence to avoid this, the circuit is implemented as shown in Fig 4 above.
 
 ### Symbol:
 Initially, after designing the schematic, it was then converted to a symbol so as to be used for further reference while designing the testbench for the same.
