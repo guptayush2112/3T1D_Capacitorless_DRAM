@@ -39,7 +39,7 @@ This problem has a resolution, that is, the help of 3T-1D structure. In this 3T-
 A single DRAM cell is capable of storing 1 bit data in the capacitor in the form of charge. Charge of the capacitor decreases with time. Hence refresh signals are used to refresh the data in the capacitor. When a read signal reads the data it refreshes it as well. Many different cell designs exist for modern day DRAM cell. These designs are differentiated by the no. of transistors used in their designing. As the no. of transistors increase, power dissipation also increases. 
 
 <p align="center">
-<img src="Project Images/3T1D Cell.jpg"></br>
+<img src="Schematics/3T1D Cell.jpg"></br>
   Fig 1: 3T1D DRAM Cell
 </p>
 Figure above represents a 3T-1D DRAM cell used for reference for designing the circuit at a transistor level.
@@ -54,7 +54,7 @@ With respect to the Fig 1 above, the basis of the storage system is the charge p
 
 Fig 2 shows the transistor-level schematic used as reference for DRAM design.
 <p align="center">
-  <img src="Project Images/Reference Circuit.jpg"></br>
+  <img src="Schematics/Reference Circuit.jpg"></br>
   Fig 2: Reference Circuit Diagram
 </p>
 <p>
@@ -76,7 +76,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 4) RCLK [Read Signal]
 5) DRAMOP [Read Signal Output]
 <p align="center">
-  <img src="Project Images/Reference Waveform.jpg"></br>
+  <img src="Simulations/Reference Waveform.jpg"></br>
   Fig 3: Pre-Simulation Waveform
 </p>
 <p>
@@ -88,7 +88,7 @@ The Synopsys Custom Compiler™ design environment is a modern solution for full
 To know more, kindly refer to: <a href='https://www.synopsys.com/implementation-and-signoff/custom-design-platform/custom-compiler.html'>Synopsys Custom Compiler</a></br>
 
 <p align="center">
-  <img src="Project Images/custom_compiler_img.jpg"></br>
+  <img src="Simulations/custom_compiler_img.jpg"></br>
 </p>
 <p>
 
@@ -108,14 +108,14 @@ The schematic of the DRAM was designed at a transistor-level using the 28nm PDK 
 </p>
 
 <p align="center">
-  <img src="Project Images/Schematic.jpg"></br>
+  <img src="Schematics/Schematic.jpg"></br>
   Fig. 4: 3T1D DRAM Schematic
 </p>
 
 ### Symbol:
 Initially, after designing the schematic, it was then converted to a symbol so as to be used for further reference while designing the testbench for the same.
 <p align="center">
-  <img src="Project Images/symbol.jpg"></br>
+  <img src="Schematics/symbol.jpg"></br>
   Fig. 5: Symbol Design
 </p>
 
@@ -123,7 +123,7 @@ Initially, after designing the schematic, it was then converted to a symbol so a
 The Testbench has been created using the Symbol designed previously and the Vpulse and Vsupply values have been set.
 
 <p align="center">
-  <img src="Project Images/Testbench Schematic.jpg"></br>
+  <img src="Schematics/Testbench Schematic.jpg"></br>
   Fig. 6: Testbench Design
 
 
@@ -133,7 +133,7 @@ The Testbench has been created using the Symbol designed previously and the Vpul
 In order to perform a successful Transient Analysis simulation of the above Testbench Design, the 28nm PDK library file was imported and then the parameter values of Start & Stop time alongwith step size were given so as to plot the desired waveform on the Waveview Simulation window.
 
 <p align="center">
-  <img src="Project Images/Trans_output.jpg"></br>
+  <img src="Simulations/Trans_output.jpg"></br>
   Fig. 7: Transient Analysis of the Testbench
 </p>
 Due to the threshold voltage of T1 in the Fig 1, there is a degraded level on the storage node [Vc] when storing a “1”, hence the Dynamic nature of DRAM.
