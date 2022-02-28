@@ -76,7 +76,7 @@ The waveform includes 5 plots [in the order of appearance] on the X Axis -
 5) DRAMOP [Read Signal Output]
 <p align="center">
   <img src="Simulations/Reference Waveform.jpg"></br>
-  Fig 3: Pre-Simulation Waveform
+  Fig 3: Reference Waveform
 </p>
 <p>
 	
