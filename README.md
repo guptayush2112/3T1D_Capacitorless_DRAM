@@ -215,4 +215,4 @@ Thus, the design and analysis of the 3T1D Capacitorless DRAM using 28nm CMOS has
 
 # References:
 [1] Prateek Asthana, Sangeeta Mahesh, “Performance Comparison of 4T, 3T and 3T1D DRAM cell design on 32 nm Technology”, 4th International Conference on Computer Science, Engineering and Applications, July 2014.</br>
-[2] rof Y.N Thakare, Dr. S.N. Kale, “Comparative Analysis of 4T and 3T-1D DRAM to minimize Power Consumption”, Journal of Applied Science and Computations, ISSN NO: 1076-5131
+[2] Prof Y.N Thakare, Dr. S.N. Kale, “Comparative Analysis of 4T and 3T-1D DRAM to minimize Power Consumption”, Journal of Applied Science and Computations, ISSN NO: 1076-5131
